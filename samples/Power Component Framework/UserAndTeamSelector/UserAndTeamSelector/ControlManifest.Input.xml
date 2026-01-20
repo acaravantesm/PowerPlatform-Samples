@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Minsait.PCFs" constructor="UserAndTeamSelector" version="2.0.0" display-name-key="Smart User Team Picker" description-key="An intelligent picker control for selecting users and teams with recent selections memory" control-type="standard">
+    
+    <property name="boundField" display-name-key="Field" description-key="The polymorphic lookup field" of-type="Lookup.Simple" usage="bound" required="true" />
+    
+    <!-- Configuration options -->
+    <property name="showUsers" display-name-key="Show Users" description-key="Allow selection of users" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    
+    <property name="showTeams" display-name-key="Show Teams" description-key="Allow selection of teams" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+
+    <resources>
+      <code path="index.ts" order="1"/>
+      <resx path="strings/UserAndTeamSelector.1033.resx" version="1.0.0" />
+      <resx path="strings/UserAndTeamSelector.1034.resx" version="1.0.0" />
+    </resources>
+    
+    <feature-usage>
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    
+  </control>
+</manifest>

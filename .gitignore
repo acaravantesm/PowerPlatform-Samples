@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/samples/Power Component Framework/UserAndTeamSelector/node_modules
+/samples/Power Component Framework/UserAndTeamSelector/out/controls/UserAndTeamSelector
