@@ -1,1 +1,1 @@
-# PowerApps Samples
+# PowerPlatform Samples
