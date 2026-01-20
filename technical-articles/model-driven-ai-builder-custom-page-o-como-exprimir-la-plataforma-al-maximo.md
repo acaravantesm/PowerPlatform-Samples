@@ -113,13 +113,3 @@ Si todo ha ido bien, cuando accedas a un registro (en mi caso) del tipoFactura, 
 ![](https://static.wixstatic.com/media/9456da_61461fc1a1414665b37efd7b0a493299~mv2.gif/v1/fill/w_147,h_82,al_c,usm_0.66_1.00_0.01,blur_2,pstr/9456da_61461fc1a1414665b37efd7b0a493299~mv2.gif)
 
 Como siempre digo, esto es sólo el principio y a partir de aqui las posibilidades que aparecen son casi infinitas! Espero haber sido de ayuda o al menos haber contado algo interesante. Nos vemos en la siguiente!!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* AI Builder
-* Dataverse
-* Power Apps
-* Power Automate

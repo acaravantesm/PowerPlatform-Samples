@@ -71,13 +71,3 @@ Haz clic en el botónGet New Access Tokeny si todo está bien configurado aparec
 Antes de finalizar, me gustaría comentar algo que me parece muy importante y es que el nivel de granularidad en la seguridad que podemos configurar va mucho mas allá de lo que estamos haciendo en este post. Digamos que lo que estamos viendo en esta entrada es el primer escalón, pero es muy importante saber que podemos llegar a configurarroles de seguridad, que se incluyen en el token de autenticación generado y que podemos utilizar para controlar las acciones para las que un determinado cliente tiene permisos.
 
 Y como siempre..... ¡Gracias por tu tiempo!. ¡Hasta la siguiente!
-
-Etiquetas:
-
-* Power Automate
-* API
-* Azure
-* OAuth
-* Power Automate
-* Seguridad
-* Azure

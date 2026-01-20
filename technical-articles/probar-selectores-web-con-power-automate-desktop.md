@@ -35,10 +35,3 @@ Fíjate que cuando editas otro selector que ha cambiado en la aplicación web co
 ![](https://static.wixstatic.com/media/9456da_4620eba844a440069234af67a5a15e1b~mv2.gif/v1/fill/w_147,h_76,al_c,usm_0.66_1.00_0.01,blur_2,pstr/9456da_4620eba844a440069234af67a5a15e1b~mv2.gif)
 
 ¡Espero que esta lectura haya sido de ayuda! ¡¡Nos vemos en la siguiente!!
-
-Etiquetas:
-
-* Power Automate
-* Power Automate Desktop
-* Power Automate
-* Power Automate Desktop

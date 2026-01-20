@@ -55,9 +55,3 @@ foreach ($app in $listaPowerApps)
 Si has llegado hasta aquí, te tengo una "sorpresa" preparada. Y es que a través de comandosPowerShellse pueden realizar pequeñas acciones que a día de hoyno se pueden hacer de ninguna otra formacomo por ejemplo bloquear la creación de entornos de tipoDeveloperen todo el tenant. ¿Cómo?aquíte lo explica muy bien Microsoft.
 
 ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* PowerShell

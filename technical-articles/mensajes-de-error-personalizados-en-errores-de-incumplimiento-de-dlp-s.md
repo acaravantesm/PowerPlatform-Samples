@@ -41,13 +41,3 @@ Una muy buena oportunidad para que una vez el usuario haga clic en el enlace del
 ![](https://static.wixstatic.com/media/9456da_3f17f371ca7b4475817e5d214d5d450f~mv2.png/v1/fill/w_49,h_24,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_3f17f371ca7b4475817e5d214d5d450f~mv2.png)
 
 ¡Gracias por tu tiempo! ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* PowerShell
-* Dataverse
-* Power Apps
-* Power Automate

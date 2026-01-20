@@ -51,13 +51,3 @@ A partir de aquí las posibilidades son múltiples: capturar estos eventos conPo
 Como puedes comprobar, prácticamente no hay requisito o necesidad funcional que no podamos cubrir con el potencial que nos ofrecePower PlatformyDataverse.
 
 ¡Gracias por tu tiempo! ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* API
-* Dataverse
-* Power Apps
-* Power Automate

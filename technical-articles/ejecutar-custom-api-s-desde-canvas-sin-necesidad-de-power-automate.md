@@ -46,13 +46,3 @@ Como hemos visto antes, laCustom APIcon la que yo estoy trabajando en esta peque
 Lógicamente todo esto se puede complicar bastante más. Por ejemplo si necesitamos pasar objetos con una estructura mas compleja comorequest. En ese caso te recomiendo, paciencia y revisar muy muy bien ladocumentación oficial de Microsoft.
 
 Por último y no menos importante... ¡lo de siempre!: esta funcionalidad está aun enfase experimentalpor lo que no es recomendable su uso en entornos productivos. ¡Espero haber sido de ayuda!. ¡Gracias por haber llegado hasta aquí! ¡Nos vemos en la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* Power Fx
-* Dataverse
-* Power Apps
-* Power Automate

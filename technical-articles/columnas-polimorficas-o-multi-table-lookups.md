@@ -62,12 +62,3 @@ Y si lo que necesitamos es hacer unretrievede un registro y consultar el campomu
 ![](https://static.wixstatic.com/media/9456da_8991534c14ed46878078cde2d0eb164b~mv2.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_8991534c14ed46878078cde2d0eb164b~mv2.png)
 
 Espero que a partir de ahora, en este tipo de escenarios no pierdas de vista el potencial de esta característica 😉. ¡Gracias por haber llegado hasta aquí! ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* Dataverse
-* Power Apps
-* Power Automate

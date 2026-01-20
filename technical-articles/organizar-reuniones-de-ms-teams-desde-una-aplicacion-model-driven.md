@@ -27,10 +27,3 @@ Ah! y por supuesto que tambien podrás unirte a la reunión desde el propio deta
 ![](https://static.wixstatic.com/media/9456da_c8fa4c5fc84f4af29a6063c5aed4055b~mv2.png/v1/fill/w_49,h_11,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_c8fa4c5fc84f4af29a6063c5aed4055b~mv2.png)
 
 Fácil, no? Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Back2Basics
-* Power Apps
-* Back2Basics

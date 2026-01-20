@@ -29,10 +29,3 @@ En mi caso, he añadido un icono al lado de cada usuario para poder lanzar la ll
 Funciona como un tiro y no tiene mucha complicación... ¿verdad?
 
 ¡Gracias por tu tiempo! ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Apps
-* Microsoft Teams
-* Power Apps
-* Microsoft Teams

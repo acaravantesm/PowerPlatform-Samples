@@ -47,12 +47,3 @@ Cuando hayas finalizado la configuración, debería mostrarse algo parecido a lo
 ![](https://static.wixstatic.com/media/9456da_4bb7f9162411476ebf775d3f9cd8a092~mv2.png/v1/fill/w_49,h_22,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_4bb7f9162411476ebf775d3f9cd8a092~mv2.png)
 
 ¡Gracias haber llegado al final! ¡Nos vemos en la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Dataverse
-* Back2Basics
-* Dataverse
-* Power Apps
-* Back2Basics

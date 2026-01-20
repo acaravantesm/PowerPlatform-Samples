@@ -55,12 +55,3 @@ Si ahora intento dar de alta un nuevo contacto, elpluginque acabo de registrar c
 Como puedes ver... ¡no hay mucho misterio!, y esto nos abre aun más el abanico de posibles funcionalidades a implementar utilizandoplugins. ¡Siempre sin perder de vista las limitaciones de la plataforma!
 
 ¡Gracias por haber llegado hasta aquí! ¡Nos vemos en el próximo post!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Dataverse
-* Power Apps
-* Dataverse
-* Power Automate

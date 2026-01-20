@@ -61,4 +61,3 @@ Si todo ha ido bien, Postman deberia mostrar una salida parecida a esta:
 ![](https://static.wixstatic.com/media/9456da_c792ef44bf54457eb6cdaaba5071d557~mv2.png/v1/fill/w_49,h_23,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_c792ef44bf54457eb6cdaaba5071d557~mv2.png)
 
 En el siguiente post lo complicamos todo un poquito más. ¡¡Espero haber sido de ayuda!! ¡¡Hasta la próxima!!
-

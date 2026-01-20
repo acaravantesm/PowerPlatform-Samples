@@ -39,12 +39,3 @@ Etiqueta los campos que va a extraerAI Builderen los nuevos documentos, guarda y
 ... y ¡listo! No puede ser mas fácil mejorar el modelo con los documentos que no han obtenido un mínimo de confianza e implementar así la mejora continua de nuestros modelos de procesamiento de formularios.
 
 ¡Espero haber resultado interesante!. ¡Gracias por haber leído hasta aquí! ¡Hasta la siguiente!
-
-Etiquetas:
-
-* Power Automate
-* Dataverse
-* AI Builder
-* Dataverse
-* AI Builder
-* Power Automate

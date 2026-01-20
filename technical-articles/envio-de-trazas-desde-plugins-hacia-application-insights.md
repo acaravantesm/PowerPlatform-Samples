@@ -68,12 +68,3 @@ Traces, el cajón de sastre donde va todo lo que se invoque desde lel métodoLog
 Esto no se queda sólo en construir gráficos. Por si no lo sabías, también podemos configurarApplication Insightspara "monitorizar" las trazas, y si alguna de estas trazas muestra información no esperada, el propio componente genera alertas vía mail/sms o incluso desencadena la ejecución de unaAzure FunctionoLogic App. Aquí tienes ladocumentación oficial.
 
 Gracias por tu tiempo y.... ¡Nos vemos en la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Dataverse
-* Azure
-* Dataverse
-* Power Apps
-* Azure

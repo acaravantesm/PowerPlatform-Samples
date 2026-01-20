@@ -95,10 +95,3 @@ A partir de aquí, puedes lanzar consultas sobre las tablas de Dataverse del tip
 Te dejo ellinkde la documentación oficial de Microsoft.
 
 Espero haberte ayudado! Nos vemos en la próxima ;-)
-
-Etiquetas:
-
-* Dataverse
-* API
-* OAuth
-* Dataverse

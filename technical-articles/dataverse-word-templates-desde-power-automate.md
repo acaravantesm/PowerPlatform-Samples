@@ -73,10 +73,3 @@ Vayámonos de vuelta aPower Automatey selecciona la acciónPerform a Bound Actio
 A partir de aquí puedes almacenar el documento generado enOne Drivey generar el Pdf con la acciónConvert Word Document to Pdfdel conectorWord Online (Business)y trabajar con el documento generado prácticamente a nuestro antojo.
 
 ¡Espero haber sido de ayuda! ¡Gracias por haber llegado hasta aquí! ¡Nos vemos en la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Dataverse
-* Power Apps
-* Power Automate

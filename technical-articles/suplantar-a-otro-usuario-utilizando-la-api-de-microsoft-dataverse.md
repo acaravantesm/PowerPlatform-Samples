@@ -54,10 +54,3 @@ Si ahora vas a la tablaCuenta, verás un nuevo registro creado y fíjate en algo
 ![](https://static.wixstatic.com/media/9456da_2e7161a532d84e84ac3dcc322e01ef32~mv2.png/v1/fill/w_49,h_31,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_2e7161a532d84e84ac3dcc322e01ef32~mv2.png)
 
 ¡Espero que la lectura haya merecido la pena! ¡¡Nos vemos en la siguiente!!
-
-Etiquetas:
-
-* API
-* Seguridad
-* Dataverse
-* Seguridad

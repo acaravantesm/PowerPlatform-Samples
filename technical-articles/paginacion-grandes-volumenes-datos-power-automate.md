@@ -39,10 +39,3 @@ Finalmente el bucle resultante es muy sencillo:
 Lo único que nos quedaría ahora es procesar los registros obtenidos en cada lote, para lo que te recomiendo la creación de otro flujo dePower Automateque actúe comochild flowde este flujo. No olvides que la API deDataversetambién presenta sus limitaciones quenuncapuedes perder de vista y que puedes consultaraquí.
 
 Espero que esta publicación sirva de ayuda. ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Automate
-* Dataverse
-* Power Automate
-* Dataverse

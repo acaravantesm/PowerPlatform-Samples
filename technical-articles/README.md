@@ -2,7 +2,7 @@
 
 Este repositorio contiene una colección completa de artículos técnicos sobre Microsoft Power Platform, Dataverse, Power Apps, Power Automate y tecnologías relacionadas. Los artículos están escritos por Alejandro Caravantes Molina y cubren desde conceptos fundamentales hasta implementaciones avanzadas.
 
-## ?? Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Power Apps](#power-apps)
 - [Power Automate](#power-automate)
@@ -16,10 +16,9 @@ Este repositorio contiene una colección completa de artículos técnicos sobre Mic
 
 ---
 
-## ?? Power Apps
+## Power Apps
 
 ### [Clonar registros con PowerFx](clonar-registros-powerfx.md)
-**Fecha:** 1 dic 2021 | **Actualizado:** 5 dic 2021
 
 Aprende a implementar funcionalidad de clonación de registros en Dataverse utilizando PowerFx a través de la barra de comandos personalizable. Incluye:
 - Edición de barras de comando en vista previa
@@ -63,10 +62,9 @@ Combinación avanzada de tecnologías Power Platform para crear experiencias de us
 
 ---
 
-## ? Power Automate
+##  Power Automate
 
 ### [Power Automate Desktop y carga de datos en aplicaciones web](power-automate-desktop-y-carga-de-datos-en-aplicaciones-web.md)
-**Fecha:** 17 ene 2022
 
 Guía completa para automatizar la carga de datos desde archivos CSV hacia aplicaciones web utilizando Power Automate Desktop. Incluye:
 - Lectura de archivos CSV
@@ -88,7 +86,6 @@ Técnicas para validar y optimizar selectores web en automatizaciones con Power A
 ---
 
 ### [Dataverse Word Templates desde Power Automate](dataverse-word-templates-desde-power-automate.md)
-**Fecha:** 11 abr 2023
 
 Aprende a generar documentos Word automáticamente desde Power Automate utilizando plantillas almacenadas en Dataverse. Incluye:
 - Creación de plantillas Word con XML Mapping
@@ -125,10 +122,9 @@ Mejores prácticas de seguridad para proteger flujos de Power Automate expuestos 
 
 ---
 
-## ??? Microsoft Dataverse
+##  Microsoft Dataverse
 
 ### [Columnas polimórficas o multi-table lookups](columnas-polimorficas-o-multi-table-lookups.md)
-**Fecha:** 11 ene 2023
 
 Guía completa sobre cómo implementar lookups que pueden referenciar múltiples tablas (similar al lookup Customer). Incluye:
 - Creación de multi-table lookups mediante API de Dataverse
@@ -142,7 +138,6 @@ Guía completa sobre cómo implementar lookups que pueden referenciar múltiples ta
 ---
 
 ### [Business Events en Dataverse](business-events-en-dataverse.md)
-**Fecha:** 30 jun 2022
 
 Aprende a crear y organizar eventos empresariales customizados en Dataverse. Incluye:
 - Creación de Custom APIs como eventos
@@ -179,10 +174,9 @@ Configuración de restricciones de firewall basadas en IP para aumentar la seguri
 
 ---
 
-## ?? Custom APIs
+##  Custom APIs
 
 ### [Custom API en Dataverse (Parte I)](custom-api-en-dataverse-parte-i.md)
-**Fecha:** 22 dic 2021
 
 Introducción completa a las Custom APIs en Dataverse. Incluye:
 - Definición de Custom API mediante tablas de Dataverse
@@ -196,7 +190,6 @@ Introducción completa a las Custom APIs en Dataverse. Incluye:
 ---
 
 ### [Custom API en Dataverse y response customizada (Parte II)](custom-api-en-dataverse-y-response-customizada-parte-ii.md)
-**Fecha:** 29 dic 2021
 
 Aprende a crear respuestas personalizadas en Custom APIs sin necesidad de tablas en Dataverse. Incluye:
 - Uso de EntityCollection como respuesta
@@ -209,7 +202,6 @@ Aprende a crear respuestas personalizadas en Custom APIs sin necesidad de tablas
 ---
 
 ### [Debug de Custom API en Dataverse](debug-de-custom-api-en-dataverse.md)
-**Fecha:** 15 feb 2022
 
 Guía paso a paso para depurar Custom APIs y Plugins. Incluye:
 - Configuración de `Allowed Custom Processing Step Type`
@@ -230,10 +222,9 @@ Técnicas para invocar Custom APIs directamente desde Canvas Apps sin intermediar
 
 ---
 
-## ?? Seguridad y Gobierno
+##  Seguridad y Gobierno
 
 ### [Azure Key Vault para securizar Environment Variables](azure-key-vault-para-securizar-environment-variables.md)
-**Fecha:** 10 ene 2022
 
 Implementación de Azure Key Vault para securizar variables de entorno en Power Platform. Incluye:
 - Registro de Microsoft.PowerPlatform como Resource Provider
@@ -247,7 +238,6 @@ Implementación de Azure Key Vault para securizar variables de entorno en Power P
 ---
 
 ### [Exenciones de DLP sobre recursos específicos](exenciones-de-dlp-s-sobre-recursos-especificos.md)
-**Fecha:** 15 nov 2022
 
 Aprende a crear excepciones específicas en políticas DLP para aplicaciones y flujos concretos utilizando PowerShell.
 
@@ -271,10 +261,9 @@ Configuración y mejores prácticas para permitir que usuarios externos (B2B) desa
 
 ---
 
-## ?? Integración y APIs
+##  Integración y APIs
 
 ### [Cómo invocar a la API de Dataverse con autenticación OAuth](invocar-api-dataverse.md)
-**Fecha:** 1 dic 2021 | **Actualizado:** 2 dic 2021
 
 Guía completa para autenticar y consumir la API de Dataverse. Incluye:
 - Registro de aplicación en Azure AD
@@ -287,7 +276,7 @@ Guía completa para autenticar y consumir la API de Dataverse. Incluye:
 
 ---
 
-## ?? RPA y Automatización
+##  RPA y Automatización
 
 ### [Scale-out de máquinas virtuales para RPA con Azure Virtual Desktop](scale-out-de-maquinas-virtuales-para-rpa-con-azure-virtual-desktop.md)
 
@@ -297,7 +286,7 @@ Implementación de infraestructura escalable para ejecutar automatizaciones RPA u
 
 ---
 
-## ?? AI Builder
+##  AI Builder
 
 ### [Mejora continua de modelos AI Builder](mejora-continua-de-modelos-ai-builder.md)
 
@@ -307,10 +296,9 @@ Técnicas para implementar ciclos de mejora continua en modelos de AI Builder uti
 
 ---
 
-## ?? Administración y PowerShell
+##  Administración y PowerShell
 
 ### [Obtener componentes Power Platform de todo el tenant con PowerShell](componentes-powerplatform-powershell.md)
-**Fecha:** 2 dic 2021
 
 Scripts de PowerShell para obtener inventario completo de componentes Power Platform. Incluye:
 - Instalación de módulos Microsoft.PowerApps
@@ -323,7 +311,7 @@ Scripts de PowerShell para obtener inventario completo de componentes Power Plat
 
 ---
 
-## ?? Desarrollo Avanzado
+##  Desarrollo Avanzado
 
 ### [Ejecución de plugins con dependencias de otras librerías](ejecucion-de-plugins-con-dependencias-de-otras-librerias.md)
 
@@ -341,16 +329,16 @@ Integración de Application Insights para monitorización y telemetría de plugins 
 
 ---
 
-## ?? Convenciones
+##  Convenciones
 
 Cada artículo incluye:
-- ? Descripción del problema o escenario
-- ? Pasos detallados de implementación
-- ? Capturas de pantalla y ejemplos de código
-- ? Mejores prácticas y consideraciones
-- ? Etiquetas para facilitar la búsqueda
+-  Descripción del problema o escenario
+-  Pasos detallados de implementación
+-  Capturas de pantalla y ejemplos de código
+-  Mejores prácticas y consideraciones
+-  Etiquetas para facilitar la búsqueda
 
-## ??? Etiquetas Principales
+##  Etiquetas Principales
 
 - **Power Apps**: Desarrollo de aplicaciones Canvas y Model Driven
 - **Power Automate**: Flujos cloud y desktop
@@ -361,16 +349,6 @@ Cada artículo incluye:
 - **AI Builder**: Inteligencia artificial y machine learning
 - **Governance**: DLP, políticas, administración
 
-## ?? Autor
+##  Autor
 
 **Alejandro Caravantes Molina**
-- Blog original: https://acaravantes.wixsite.com/misitio
-
-## ?? Notas
-
-Los artículos originales fueron publicados en el blog personal del autor. Este repositorio contiene versiones en Markdown para facilitar su acceso y consulta.
-
----
-
-**Última actualización:** 2023
-**Total de artículos:** 29

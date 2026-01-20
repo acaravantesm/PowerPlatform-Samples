@@ -53,13 +53,3 @@ Una vez ejecutado el script y si no ha ocurrido ningún error, dirígete de vuel
 ![](https://static.wixstatic.com/media/9456da_8c129256f480439bb25715966c375480~mv2.png/v1/fill/w_49,h_11,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_8c129256f480439bb25715966c375480~mv2.png)
 
 ¡Gracias por haber leído hasta aquí! ¡Hasta la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Power Automate
-* Seguridad
-* PowerShell
-* Power Apps
-* Power Automate
-* Seguridad

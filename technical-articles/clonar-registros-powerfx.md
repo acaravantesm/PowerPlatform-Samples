@@ -87,9 +87,3 @@ Notify("Product " & Self.Selected.Item.Name & " and its assets have been cloned.
 ```
 
 Espero que lo que has leido hasta aquí haya servido de ayuda. ¡Hasta la próxima!
-
-Etiquetas:
-
-* Power Apps
-* Power Fx
-* Power Apps

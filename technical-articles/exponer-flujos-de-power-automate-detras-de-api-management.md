@@ -102,12 +102,3 @@ Crea una nueva pestaña e introduce la URL de tu recursoAPI Managementseguido de
 ![](https://static.wixstatic.com/media/9456da_8c293d73121b4b1b9cd28c3b17775941~mv2.png/v1/fill/w_49,h_25,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_8c293d73121b4b1b9cd28c3b17775941~mv2.png)
 
 En la siguiente entrada vamos a ir un paso mas allá y vamos a configurar la seguridad para autenticar las llamadas a API Management ¡Gracias por tu tiempo! ¡Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Power Automate
-* API
-* Azure
-* Power Automate
-* Seguridad
-* Azure

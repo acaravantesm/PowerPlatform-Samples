@@ -23,6 +23,3 @@ Lo importante del fragmento de código es como construimos los objetosEntity. Es
 Si esto lo ejecutamos enPostmanobtenemos una response totalmente customizada a nuestro gusto. Algo parecido a esto:
 
 ¡¡Espero que este post haya sido de utilidad!!
-
-## ¡Feliz 2022! ¡¡Nos vemos el año que viene!!
-

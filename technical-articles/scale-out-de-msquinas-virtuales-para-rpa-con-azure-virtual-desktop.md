@@ -146,12 +146,3 @@ Y por último la traca final. Vuelve alMachine Groupy.... ¡tachán! Una nueva m
 ¿Qué?, Con quePower Platformes para cosas simples ¿eh?
 
 ¡Espero haber sido de ayuda!, ¡Hasta la próxima!
-
-Etiquetas:
-
-* Power Automate
-* Azure
-* Power Automate Desktop
-* Power Automate
-* Azure
-* Power Automate Desktop

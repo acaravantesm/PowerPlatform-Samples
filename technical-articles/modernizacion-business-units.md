@@ -42,10 +42,3 @@ Ese nuevo desplegable va a mostrar todas las unidades de negocio disponibles en 
 Como siempre digo yo intento simplificarlo al máximo en estos post, por lo que si necesitas ampliar información no dudes en pasarte por estevideodonde se baja a mas nivel.
 
 ¡¡Espero que este post haya sido útil!! Nos vemos en la siguiente!
-
-Etiquetas:
-
-* Dataverse
-* Seguridad
-* Dataverse
-* Seguridad

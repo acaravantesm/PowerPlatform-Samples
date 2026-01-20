@@ -51,10 +51,3 @@ Una vez hecho esto lo único que nos falta es guardar el contacto, cerrar la ven
 A partir de aquihay mucho camino que recorrer. Se puede explorar la automatización del rellenado de campos mas complejos, control de errores y excepciones, aumento del rendimiento del flujo para que se ejecute mas rápido... Todos estos puntos que comento tienen un gran margen de mejora, que veremos en próximos post!!
 
 ¡Espero que esta lectura haya sido de ayuda! ¡¡Nos vemos en la siguiente!!
-
-Etiquetas:
-
-* Power Automate
-* Power Automate Desktop
-* Power Automate
-* Power Automate Desktop

@@ -52,10 +52,3 @@ Y es sólo cuando desactivo esa propiedad, cuando ya no puedo seguir invocando a
 AunquePower Platformsea una plataforma como servicio y no tengamos acceso a toda la infraestructura que se despliega por detrás para hacer funcionar el servicio (que como te imaginarás, no es poca), podemos tener acceso a este tipo de funcionalidades de una forma mucho mas sencilla y rápida que si tuviéramos que configurar la infraestructura en si.
 
 ¡Ojala que este post haya resultado interesante! ¡¡Hasta la próxima!!
-
-Etiquetas:
-
-* API
-* Seguridad
-* Dataverse
-* Seguridad
