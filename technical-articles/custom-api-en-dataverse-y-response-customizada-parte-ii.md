@@ -1,6 +1,6 @@
 # Custom API en Dataverse y response customizada (Parte II)
 
-![](https://static.wixstatic.com/media/9456da_5c03e23782874e52b0858c418c0e452b~mv2.png/v1/fill/w_123,h_82,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_5c03e23782874e52b0858c418c0e452b~mv2.png)
+![](./assets/capi/9456da_5c03e23782874e52b0858c418c0e452b~mv2.png)
 
 Esta es la segunda parte hablando sobre las Custom API que ofreceDataverse. De dónde venimos lo puedes consultar aquí.
 

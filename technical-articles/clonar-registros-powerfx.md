@@ -1,6 +1,6 @@
 # Clonar registros con PowerFx
 
-![](https://static.wixstatic.com/media/9456da_21567c51db2a4f8a9d6ce82e5540b869~mv2.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_21567c51db2a4f8a9d6ce82e5540b869~mv2.png)
+![](./assets/pwfx/9456da_21567c51db2a4f8a9d6ce82e5540b869~mv2.avif)
 
 Si pienso en cómo tendríamos que implementar esta funcionalidad cuando empecé conDynamicshace ya unos cuantos años, y lo comparo con lo que vamos a ver ahora me explota el cerebro la verdad.
 
@@ -10,9 +10,9 @@ Vamos a clonar registros de la tablaCuentasutilizandoPowerFxa través de una fun
 
 Lo primero que tenemos que hacer es crear una nueva solución y agregar la aplicaciónmodel-drivenque queremos customizar. Una vez se ha agregado la aplicación, sobre el menú contextual de la propia aplicación haz clic en la opciónEditar,Editar en vista previa.
 
-![](https://static.wixstatic.com/media/9456da_a3ab7e8aab064fe0b251afee58cf7357~mv2.png/v1/fill/w_49,h_29,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_a3ab7e8aab064fe0b251afee58cf7357~mv2.png)
+![](./assets/pwfx/9456da_a3ab7e8aab064fe0b251afee58cf7357~mv2.avif)
 
-![](https://static.wixstatic.com/media/9456da_58bba5f5b85140b8b1de2af86f8b8d2c~mv2.png/v1/fill/w_51,h_72,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_58bba5f5b85140b8b1de2af86f8b8d2c~mv2.png)
+![](./assets/pwfx/9456da_58bba5f5b85140b8b1de2af86f8b8d2c~mv2.avif)
 
 En la lista de tablas que aparece en la zona de la izquierda, haz scroll hasta la tablaCuentasy en su menú contextual seleccionaEditar barra de comandos (vista previa).
 
@@ -20,15 +20,15 @@ Esto abrirá una nueva ventana de navegador que nos va a preguntar que barra de 
 
 Nosotros vamos a editar la barra de comandos de la vista o cuadricula principal por lo que selecciona la opciónCuadrícula principal.
 
-![](https://static.wixstatic.com/media/9456da_353040dcfdb44cec8c366952aded86da~mv2.png/v1/fill/w_47,h_29,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_353040dcfdb44cec8c366952aded86da~mv2.png)
+![](./assets/pwfx/9456da_353040dcfdb44cec8c366952aded86da~mv2.avif)
 
 Si eres un tantooldiecomo yo, por decirlo finamente, te lanzo una pregunta:
 
 A mi la verdad que sí. Si has seguido los pasos estarás viendo una pantalla parecida a la que se puede ver a continuación con todos los comandos disponibles de la tablaCuentas.
 
-![](https://static.wixstatic.com/media/9456da_a75be7b1ed01430189393bcc176115eb~mv2.png/v1/fill/w_49,h_12,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_a75be7b1ed01430189393bcc176115eb~mv2.png)
+![](./assets/pwfx/9456da_a75be7b1ed01430189393bcc176115eb~mv2.avif)
 
-![](https://static.wixstatic.com/media/9456da_74408d607e3b4e95822b85073ad4490e~mv2.png/v1/fill/w_59,h_100,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_74408d607e3b4e95822b85073ad4490e~mv2.png)
+![](./assets/pwfx/9456da_74408d607e3b4e95822b85073ad4490e~mv2.avif)
 
 Haz clic en la opciónNuevo Comandoy como pordrás suponer lo que va a ocurrir es que se va a añadir un nuevo comando. Juega con las opcionesSubiryBajarpara colocar el nuevo botón donde consideres. Escribe un nombre descriptivo para el nuevo comando en el campoEtiquetay establece un icono para el comando. Yo he elegido el icono de cajaClone.
 
@@ -58,7 +58,7 @@ Fíjate que además de crear el registro estamos lanzando unanotificaciónal usu
 
 Por último seleccionaGuardar y Publicary prueba tu nuevo botón en la cuadrícula principalCuentas.
 
-![](https://static.wixstatic.com/media/9456da_4f797e51a56c49bab54f053b63e7c40c~mv2.png/v1/fill/w_49,h_10,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_4f797e51a56c49bab54f053b63e7c40c~mv2.png)
+![](./assets/pwfx/9456da_4f797e51a56c49bab54f053b63e7c40c~mv2.avif)
 
 Lógicamente lo que hemos visto aquí ha sido unachorraday esto se puede complicar todo lo que queramos. Por ejemplo si necesitas clonar un registro y todos sus registros hijos puedes utilizar la funciónForAllpara clonar tambien estos registros. La fórmula podría tener un aspecto como el siguiente:
 
