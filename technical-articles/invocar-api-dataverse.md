@@ -1,6 +1,6 @@
 # Cómo invocar a la API de Dataverse con autenticación OAuth
 
-![](https://static.wixstatic.com/media/9456da_5ee344b297e84b53819a3c6dcdd774ad~mv2.jpg/v1/fill/w_147,h_80,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_5ee344b297e84b53819a3c6dcdd774ad~mv2.jpg)
+![](./assets/apid/9456da_5ee344b297e84b53819a3c6dcdd774ad~mv2.avif)
 
 Hace no mucho tiempo un cliente nos trasladó la necesidad que sistemas terceros de su organización, hicieran consultas a datos almacenados enDataverse. En un principio habían pensado en que construyeramos una capa de servicios que serían a los que estos sistemas invocarían.
 
@@ -18,29 +18,29 @@ Para ello iniciamos sesión en elPortal de Azurecon un usuario con permisos sufi
 
 Introducimos un nombre de la aplicación que estamos registrando y el resto de parametros los dejamos tal y como están con su valor por defecto.
 
-![](https://static.wixstatic.com/media/9456da_ece81bb674d843bfa9a103d9e532ae57~mv2.png/v1/fill/w_49,h_37,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_ece81bb674d843bfa9a103d9e532ae57~mv2.png)
+![](./assets/apid/9456da_ece81bb674d843bfa9a103d9e532ae57~mv2.avif)
 
 Ve a la página deInformación Generalde la aplicación registrada y copia el valor que aparece enId de Aplicación (Clente)
 
-![](https://static.wixstatic.com/media/9456da_24172c14e2ab4d73958bfc9c26d55f7a~mv2.png/v1/fill/w_49,h_16,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_24172c14e2ab4d73958bfc9c26d55f7a~mv2.png)
+![](./assets/apid/9456da_24172c14e2ab4d73958bfc9c26d55f7a~mv2.avif)
 
 Ahora haz clic en el botón superior Puntos de conexión y copia el valor del segundo campo de la ventana emergente que aparece, cuyo nombre esPunto de conexión de token de OAuth 2.0 (v2).
 
-![](https://static.wixstatic.com/media/9456da_b03593a9b8724710a5d2aeeeedbf4f36~mv2.png/v1/fill/w_49,h_12,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_b03593a9b8724710a5d2aeeeedbf4f36~mv2.png)
+![](./assets/apid/9456da_b03593a9b8724710a5d2aeeeedbf4f36~mv2.avif)
 
 Lo siguiente que vamos a hacer es añadir un secreto a la aplicación que acabamos de crear. Para ello desde el detalle de la aplicación recien creada vamos a la secciónCertificados y Secretosy seleccionamos la opciónNuevo Secreto de Cliente. Escribimos el nombre del secreto, el periodo de validez y pulsamosAgregar.Cuidadoaquí que necesitamos copiar elvalordel secreto generado y sólo lo vamos a poder hacer en este momento y no después.
 
-![](https://static.wixstatic.com/media/9456da_091555738e754f0eb480474df6c64cbe~mv2.png/v1/fill/w_49,h_22,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_091555738e754f0eb480474df6c64cbe~mv2.png)
+![](./assets/apid/9456da_091555738e754f0eb480474df6c64cbe~mv2.avif)
 
 Creación de nuevo usuario en Dataverse
 
 Una vez tenemos la aplicación registrada en el directorio activo, lo que vamos a hacer es crear un usuario de tipoaplicaciónenDataversevinculado a la aplicación que acabamos de crear.
 
-![](https://static.wixstatic.com/media/9456da_8098a15ba43e4f9ab03cfdebfb6af540~mv2.png/v1/fill/w_86,h_67,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_8098a15ba43e4f9ab03cfdebfb6af540~mv2.png)
+![](./assets/apid/9456da_8098a15ba43e4f9ab03cfdebfb6af540~mv2.avif)
 
 Para ello accede al portal dePower Apps, selecciona el entorno sobre el que estás trabajando y accede a laConfiguración avanzada. Microsoft está trabajando aun en la migración de toda la funcionalidad a la nueva experiencia y esta parte está aun en elto be, por lo que vamos a navegar al modo clásico. Los mas nostálgicos vamos a echar de menos este modo.
 
-![](https://static.wixstatic.com/media/9456da_3fc5a7158b1e4932911d87ea348d5d90~mv2.png/v1/fill/w_56,h_68,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_3fc5a7158b1e4932911d87ea348d5d90~mv2.png)
+![](./assets/apid/9456da_3fc5a7158b1e4932911d87ea348d5d90~mv2.avif)
 
 Navega hastaSystem,Securityy haz clic enUsers. Una vez veas aparezca la vista de usuarios, asegurate de seleccionar la vista con nombreApplication Users. Cuando hayas seleccionado esta vista haz clic en el botonNewde la barra de herramientas. Esto hará que se abra un formulario de alta de usuarios donde solo vamos a poder introducir el campo con nombreApplication IDya que todos los demás campos son de solo lectura y se van a setear automáticamente al guardar el usuario. Pega el valor que copiaste del campoId de Aplicación (Cliente)en la página deInformación Generalcuando registraste la aplicación en el directorio activo y haz clic en el botónSave. Cuando se guarde el usuario que acabamos de crear aparecerán los valores del resto de campos.
 
@@ -72,7 +72,7 @@ Client Authentication: Send as Basic Auth header
 
 Después de todas estas configuraciones la ventana de Postman debe tener un aspecto similar al que se puede ver a continuación. (Consejo: utiliza lasvariablesy losentornosdePostmany cuidado con lascookies!!!)
 
-![](https://static.wixstatic.com/media/9456da_240471f2f834408f8fcbfa29ee99ea9a~mv2.png/v1/fill/w_49,h_30,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_240471f2f834408f8fcbfa29ee99ea9a~mv2.png)
+![](./assets/apid/9456da_240471f2f834408f8fcbfa29ee99ea9a~mv2.avif)
 
 Si todo ha ido bien, cuando hagas clic sobreGet New Access Token,Postmanobtendrá un token de autenticación válido para lanzar cualquier petición aDataversevía API para las que el usuario que has creado tenga permisos. Si ejecutas la operaciónWhoAmIy todo va como debe ir, tendrás un response parecido a este:
 

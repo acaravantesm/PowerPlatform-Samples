@@ -38,22 +38,6 @@ Técnicas para mostrar información de registros relacionados directamente en form
 
 ---
 
-### [Llamar desde una Canvas App a través de Microsoft Teams](llamar-desde-una-canvas-app-a-traves-de-microsoft-teams.md)
-
-Integración de funcionalidades de llamadas de Microsoft Teams dentro de aplicaciones Canvas.
-
-**Temas:** Power Apps, Canvas Apps, Microsoft Teams
-
----
-
-### [Organizar reuniones de MS Teams desde una aplicación Model Driven](organizar-reuniones-de-ms-teams-desde-una-aplicacion-model-driven.md)
-
-Implementación de funcionalidad para crear y gestionar reuniones de Microsoft Teams directamente desde aplicaciones Model Driven.
-
-**Temas:** Power Apps, Model Driven Apps, Microsoft Teams, Graph API
-
----
-
 ### [Model Driven + AI Builder + Custom Page: Cómo exprimir la plataforma al máximo](model-driven-ai-builder-custom-page-o-como-exprimir-la-plataforma-al-maximo.md)
 
 Combinación avanzada de tecnologías Power Platform para crear experiencias de usuario ricas utilizando Model Driven Apps, AI Builder y Custom Pages.

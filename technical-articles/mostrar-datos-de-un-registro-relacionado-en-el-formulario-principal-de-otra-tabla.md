@@ -1,6 +1,6 @@
 # Mostrar datos de un registro relacionado en el formulario principal  de otra tabla
 
-![](https://static.wixstatic.com/media/9456da_9cd704c346e54d799448ff4de078fd2c~mv2.png/v1/fill/w_49,h_8,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_9cd704c346e54d799448ff4de078fd2c~mv2.png)
+![](./assets/parnt/9456da_9cd704c346e54d799448ff4de078fd2c~mv2.avif)
 
 Este post va a servir de inauguración a la serie Back To Basics, donde intentaré describir y ayudar con la difusión de funcionalidades muy muy simples, básicas y sencillas, a las que quizás por ese motivo no siempre se le da la relevancia que podrían tener.
 
@@ -14,15 +14,15 @@ Vamos a probar con las tablas que nunca se suelen usar para pruebas:CuentayConta
 
 Crea un nuevo formulario deContactocon los campos que quieras incluir. El mio tiene el siguiente aspecto:
 
-![](https://static.wixstatic.com/media/9456da_0036ee7c79724826a04ddd86f6c4e9d7~mv2.png/v1/fill/w_49,h_27,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_0036ee7c79724826a04ddd86f6c4e9d7~mv2.png)
+![](./assets/parnt/9456da_0036ee7c79724826a04ddd86f6c4e9d7~mv2.avif)
 
 Quédate con el identificador único de este formulario, que lo puedes encontrar en la barra del navegador:
 
 ```powerapps
-https://make.powerapps.com/e/c9db95f8-91f1-40b3-8d7d-a12f010d9342/s/10cc9b1d-fe07-ed11-82e5-6045bd8b97a1/entity/contact/form/edit/f9e75461-0008-ed11-82e5-6045bd8b97a1?source=powerappsportal
+https://make.powerapps.com/e/c123456-91f1-40b3-8d7d-a12f010d9342/s/10cc9b1d-fe07-ed11-82e5-6543bd8b97a1/entity/contact/form/edit/f9e75461-0008-ed11-82e5-6045bd8b97a1?source=powerappsportal
 ```
 
-![](https://static.wixstatic.com/media/9456da_cbe87e1435cb416f8823cde394bfec32~mv2.png/v1/fill/w_78,h_87,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_cbe87e1435cb416f8823cde394bfec32~mv2.png)
+![](./assets/parnt/9456da_cbe87e1435cb416f8823cde394bfec32~mv2.avif)
 
 Vámonos ahora con el formulario principal de la tablaCuenta. Ya te aviso que ahora mismo sólo puedes hacer esta configuración desde elModo Clásicopor lo que abre la edición del formulario en ese modo. Añade ellookupde Contacto Principal y haz doble clic sobre el control.
 
@@ -40,10 +40,10 @@ Lógicamente debes indicar el nombre de la entidad secundaria con la que estés 
 
 Cuando hayas finalizado la configuración, debería mostrarse algo parecido a lo que ves en la siguiente imagen:
 
-![](https://static.wixstatic.com/media/9456da_c59f111e6bb641109ec7bcd8681e9fac~mv2.png/v1/fill/w_75,h_85,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_c59f111e6bb641109ec7bcd8681e9fac~mv2.png)
+![](./assets/parnt/9456da_c59f111e6bb641109ec7bcd8681e9fac~mv2.avif)
 
 ¡Ya está! Muy muy sencillo, ¿no crees?. Guarda los cambios, publica la solución y... ¡voilá!
 
-![](https://static.wixstatic.com/media/9456da_4bb7f9162411476ebf775d3f9cd8a092~mv2.png/v1/fill/w_49,h_22,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_4bb7f9162411476ebf775d3f9cd8a092~mv2.png)
+![](./assets/parnt/9456da_4bb7f9162411476ebf775d3f9cd8a092~mv2.avif)
 
 ¡Gracias haber llegado al final! ¡Nos vemos en la próxima!

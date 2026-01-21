@@ -1,6 +1,6 @@
 # IP Firewall Restriction en Microsoft Dataverse
 
-![](https://static.wixstatic.com/media/9456da_09d69f49a918424196115e9178904010~mv2.jpg/v1/fill/w_148,h_58,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_09d69f49a918424196115e9178904010~mv2.jpg)
+![](./assets/firewall/9456da_09d69f49a918424196115e9178904010~mv2.avif)
 
 Como bien sabes,Microsoft siempre esta incorporando nuevas características aPower Platform. Bien sea desde un punto de vista funcional, desde un punto de vista delook and feel, o como es este caso desde un punto de vista de arquitectura y/o seguridad.
 
@@ -10,7 +10,7 @@ En las últimas semanas se ha anunciado una nueva característica que aun está 
 
 Asegúrate que el entorno sobre el que vas a trabajar es un entorno administrado y...
 
-![](https://static.wixstatic.com/media/9456da_fa2c3591b5234d88842ad01f7f78d3f1~mv2.png/v1/fill/w_89,h_29,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_fa2c3591b5234d88842ad01f7f78d3f1~mv2.png)
+![](./assets/firewall/9456da_fa2c3591b5234d88842ad01f7f78d3f1~mv2.avif)
 
 Accede alCentro de Administración de Power Platformy selecciona el entorno sobre el que vas a configurar esta característica. Dirígete aSettingsy una vez allí seleccionaProduct>Privacy + Security.Allí busca la sección con nombre"Enable IP address based firewall rule".
 
@@ -33,21 +33,21 @@ Reverse proxy IP addresses:  Por último, esta propiedad esta destinada para aqu
 
 La configuración que yo he utilizado para mi prueba es la que se puede ver en la siguiente imagen:
 
-![](https://static.wixstatic.com/media/9456da_b512799e044d4944ac031df077637165~mv2.png/v1/fill/w_101,h_105,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_b512799e044d4944ac031df077637165~mv2.png)
+![](./assets/firewall/9456da_b512799e044d4944ac031df077637165~mv2.avif)
 
 Como ves, he incluido mi dirección IP actual en la lista blanca, he permitido que losapplication userssigan haciendo llamadas a la API deDataverse, y he desactivado el modoaudit onlypara que se bloqueen todas las llamadas que no provengan de las IP´s permitidas.
 
 Si ahora intento acceder a cualquier característica del entorno donde he configurado esta restricción desde una IP no permitida, obtengo el siguiente error:
 
-![](https://static.wixstatic.com/media/9456da_40a351e444924150897666543d895a1f~mv2.png/v1/fill/w_49,h_26,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_40a351e444924150897666543d895a1f~mv2.png)
+![](./assets/firewall/9456da_40a351e444924150897666543d895a1f~mv2.avif)
 
 Sin embargo, al haber dejado activada la propiedadAllow access for all application users, sigo pudiendo realizar llamadas directamente a la API deDataversecon untokengenerado con un credenciales de este tipo de usuarios:
 
-![](https://static.wixstatic.com/media/9456da_4f0224e764da4c36ab5647cfed434a4f~mv2.png/v1/fill/w_49,h_30,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_4f0224e764da4c36ab5647cfed434a4f~mv2.png)
+![](./assets/firewall/9456da_4f0224e764da4c36ab5647cfed434a4f~mv2.avif)
 
 Y es sólo cuando desactivo esa propiedad, cuando ya no puedo seguir invocando a la API deDataverse:
 
-![](https://static.wixstatic.com/media/9456da_4f30c9f22c114331bcce95555d1fe842~mv2.png/v1/fill/w_49,h_7,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/9456da_4f30c9f22c114331bcce95555d1fe842~mv2.png)
+![](./assets/firewall/9456da_4f30c9f22c114331bcce95555d1fe842~mv2.avif)
 
 AunquePower Platformsea una plataforma como servicio y no tengamos acceso a toda la infraestructura que se despliega por detrás para hacer funcionar el servicio (que como te imaginarás, no es poca), podemos tener acceso a este tipo de funcionalidades de una forma mucho mas sencilla y rápida que si tuviéramos que configurar la infraestructura en si.
 
