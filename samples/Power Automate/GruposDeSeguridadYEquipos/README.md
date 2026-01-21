@@ -1,13 +1,13 @@
 # Sincronización de Grupos de Seguridad y Equipos - Power Automate Flow
 
-[![Power Automate](https://img.shields.io/badge/Power%20Automate-Flow-0066FF?style=flat-square&logo=powerautomate)](https://powerautomate.microsoft.com/)
-[![Dataverse](https://img.shields.io/badge/Dataverse-API-742774?style=flat-square)](https://docs.microsoft.com/power-apps/developer/data-platform/)
-[![Azure AD](https://img.shields.io/badge/Azure%20AD-Groups-0078D4?style=flat-square&logo=microsoftazure)](https://azure.microsoft.com/services/active-directory/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Power Automate](https://img.shields.io/badge/Power%20Automate-Flow-0066FFstyle=flat-square&logo=powerautomate)](https://powerautomate.microsoft.com/)
+[![Dataverse](https://img.shields.io/badge/Dataverse-API-742774style=flat-square)](https://docs.microsoft.com/power-apps/developer/data-platform/)
+[![Azure AD](https://img.shields.io/badge/Azure%20AD-Groups-0078D4style=flat-square&logo=microsoftazure)](https://azure.microsoft.com/services/active-directory/)
+[![License](https://img.shields.io/badge/License-MIT-green.svgstyle=flat-square)](LICENSE)
 
 Un flujo de Power Automate diseñado para sincronizar automáticamente grupos de seguridad de Azure Active Directory con equipos (teams) en Microsoft Dataverse, permitiendo la gestión centralizada de permisos y roles de seguridad.
 
-## ?? Índice
+##  Índice
 
 - [Descripción General](#-descripción-general)
 - [Características](#-características)
@@ -24,7 +24,7 @@ Un flujo de Power Automate diseñado para sincronizar automáticamente grupos de s
 - [Contribución](#-contribución)
 - [Licencia](#-licencia)
 
-## ?? Descripción General
+##  Descripción General
 
 Este flujo automatizado permite sincronizar grupos de seguridad de Azure Active Directory con equipos en Microsoft Dataverse, facilitando la administración de permisos y roles de seguridad de forma programática. El flujo es especialmente útil para:
 
@@ -41,43 +41,43 @@ Este flujo automatizado permite sincronizar grupos de seguridad de Azure Active 
 3. **Multi-tenancy**: Gestionar equipos y permisos en múltiples entornos desde un flujo centralizado
 4. **Auditoría y Compliance**: Mantener trazabilidad de creación y eliminación de equipos
 
-## ?? Características
+##  Características
 
-### ?? Operaciones Soportadas
+###  Operaciones Soportadas
 
 - **CREATE**: Crea un nuevo equipo en Dataverse vinculado a un grupo de Azure AD
-  - ? Validación de existencia previa del equipo
-  - ? Consulta de Business Unit por División
-  - ? Consulta y asignación de Rol de Seguridad
-  - ? Configuración de administrador del equipo
-  - ? Compartir Canvas Apps con el grupo (opcional)
+  -  Validación de existencia previa del equipo
+  -  Consulta de Business Unit por División
+  -  Consulta y asignación de Rol de Seguridad
+  -  Configuración de administrador del equipo
+  -  Compartir Canvas Apps con el grupo (opcional)
 
 - **DELETE**: Elimina un equipo existente en Dataverse
-  - ? Validación de existencia del equipo
-  - ? Eliminación de permisos de Canvas Apps
-  - ? Eliminación del equipo y sus asociaciones
+  -  Validación de existencia del equipo
+  -  Eliminación de permisos de Canvas Apps
+  -  Eliminación del equipo y sus asociaciones
 
-### ?? Características de Seguridad
+###  Características de Seguridad
 
 - **Autenticación OAuth 2.0**: Utiliza Client Credentials Flow para acceso seguro
 - **Tokens de Acceso**: Gestión automática de tokens para APIs de Dataverse y Power Apps
 - **Validaciones de Negocio**: Comprobaciones exhaustivas antes de operaciones críticas
 - **Manejo de Errores**: Sistema robusto de códigos de error y respuestas HTTP
 
-### ?? Capacidades Multi-Entorno
+###  Capacidades Multi-Entorno
 
 - **Detección Automática**: Identifica el entorno de la aplicación de forma dinámica
 - **API Dinámica**: Construcción de URLs de API basada en el entorno objetivo
 - **Conexiones Flexibles**: Uso de referencias de conexión configurables
 
-### ?? Integración
+###  Integración
 
 - **Center of Excellence (CoE) Kit**: Integrado con el CoE Starter Kit de Microsoft
 - **Dataverse API**: Acceso completo a la Web API de Dataverse
 - **Power Apps API**: Gestión de permisos de Canvas Apps
 - **Azure AD Groups**: Sincronización con grupos de seguridad de Azure
 
-## ?? Requisitos Previos
+##  Requisitos Previos
 
 ### Componentes Necesarios
 
@@ -117,7 +117,7 @@ Este flujo automatizado permite sincronizar grupos de seguridad de Azure Active 
 - **Postman** (opcional): Para pruebas de la API HTTP
 - **Azure Portal**: Para gestión de aplicaciones Azure AD
 
-## ??? Arquitectura
+##  Arquitectura
 
 ### Diagrama de Componentes
 
@@ -157,7 +157,7 @@ Ejemplo: APP_BU001_CanvasUser
 - Security Role: CanvasUser
 ```
 
-## ?? Instalación
+##  Instalación
 
 ### Opción 1: Importar Solución Desempaquetada
 
@@ -224,7 +224,7 @@ jobs:
           solution-file: out/GruposDeSeguridadYEquipos.zip
 ```
 
-## ?? Configuración
+##  Configuración
 
 ### Paso 1: Crear Registro de Aplicación en Azure AD
 
@@ -263,7 +263,7 @@ az ad app create `
 # Description: "Flow Sync Secret"
 # Expires: 24 months (recomendado)
 # 
-# ?? IMPORTANTE: Copiar el valor del secret INMEDIATAMENTE
+#  IMPORTANTE: Copiar el valor del secret INMEDIATAMENTE
 ```
 
 ### Paso 2: Configurar Variables en el Flujo
@@ -282,7 +282,7 @@ Edita el flujo importado y actualiza las siguientes variables:
 // 2. Declarar_Secret
 {
   "name": "CredentialsSecret",
-  "value": "YOUR_CLIENT_SECRET"  // ?? IMPORTANTE: Considera usar Azure Key Vault
+  "value": "YOUR_CLIENT_SECRET"  //  IMPORTANTE: Considera usar Azure Key Vault
 }
 
 // 3. Declarar_TenantId
@@ -341,7 +341,7 @@ pac solution import --path CenterofExcellenceCoreComponents_x_x_x_x_managed.zip
 # 3. Turn on
 ```
 
-## ?? Uso
+##  Uso
 
 ### Invocar el Flujo - Operación CREATE
 
@@ -362,7 +362,7 @@ Content-Type: application/json
 #### Ejemplo con PowerShell
 
 ```powershell
-$flowUrl = "https://prod-xx.westeurope.logic.azure.com/workflows/.../triggers/manual/paths/invoke?..."
+$flowUrl = "https://prod-xx.westeurope.logic.azure.com/workflows/.../triggers/manual/paths/invoke..."
 
 $body = @{
     Action = "create"
@@ -415,8 +415,8 @@ Action: HTTP
     {
       "Action": "create",
       "AppId": "@{outputs('Get_App_Id')}",
-      "SecurityGroupId": "@{triggerBody()?['GroupId']}",
-      "SecurityGroupName": "@{triggerBody()?['GroupName']}"
+      "SecurityGroupId": "@{triggerBody()['GroupId']}",
+      "SecurityGroupName": "@{triggerBody()['GroupName']}"
     }
 ```
 
@@ -431,14 +431,14 @@ Action: HTTP
     "body": {
       "Action": "create",
       "AppId": "@{variables('AppId')}",
-      "SecurityGroupId": "@{triggerBody()?['GroupId']}",
+      "SecurityGroupId": "@{triggerBody()['GroupId']}",
       "SecurityGroupName": "APP_@{variables('BU')}_@{variables('Role')}"
     }
   }
 }
 ```
 
-## ?? API Reference
+##  API Reference
 
 ### HTTP Trigger Endpoint
 
@@ -450,10 +450,10 @@ POST https://prod-{region}.logic.azure.com/workflows/{workflow-id}/triggers/manu
 
 | Campo | Tipo | Requerido | Descripción | Validación |
 |-------|------|-----------|-------------|------------|
-| `Action` | string | ? | Operación a realizar | Enum: `create`, `delete` |
-| `AppId` | string | ? | GUID de la aplicación | Formato GUID |
-| `SecurityGroupId` | string | ?* | GUID del grupo de Azure AD | Formato GUID, requerido para CREATE |
-| `SecurityGroupName` | string | ? | Nombre del grupo con formato específico | Pattern: `*_*_*` |
+| `Action` | string |  | Operación a realizar | Enum: `create`, `delete` |
+| `AppId` | string |  | GUID de la aplicación | Formato GUID |
+| `SecurityGroupId` | string | * | GUID del grupo de Azure AD | Formato GUID, requerido para CREATE |
+| `SecurityGroupName` | string |  | Nombre del grupo con formato específico | Pattern: `*_*_*` |
 
 *Nota: `SecurityGroupId` es requerido para la operación CREATE
 
@@ -488,7 +488,7 @@ POST https://prod-{region}.logic.azure.com/workflows/{workflow-id}/triggers/manu
 | `400` | Request inválida (schema incorrecto) |
 | `500` | Error interno del flujo |
 
-## ??? Flujo de Trabajo
+##  Flujo de Trabajo
 
 ### Operación CREATE - Diagrama Detallado
 
@@ -502,7 +502,7 @@ POST https://prod-{region}.logic.azure.com/workflows/{workflow-id}/triggers/manu
 [Diagrama detallado de operación DELETE aquí]
 ```
 
-## ? Códigos de Error
+##  Códigos de Error
 
 | Código | Descripción | Acción Sugerida |
 |--------|-------------|-----------------|
@@ -557,7 +557,7 @@ Content-Type: application/json
 **Resolución:**
 ```powershell
 # Verificar equipos existentes
-GET {{DataverseURL}}/api/data/v9.2/teams?$filter=contains(name,'APP_BU')
+GET {{DataverseURL}}/api/data/v9.2/teams$filter=contains(name,'APP_BU')
 Authorization: Bearer {{AccessToken}}
 ```
 
@@ -579,7 +579,7 @@ Content-Type: application/json
 **Resolución:**
 ```powershell
 # Listar Business Units disponibles
-GET {{DataverseURL}}/api/data/v9.2/businessunits?$select=name,divisionname&$filter=isdisabled eq false
+GET {{DataverseURL}}/api/data/v9.2/businessunits$select=name,divisionname&$filter=isdisabled eq false
 
 # Si la BU debe existir, crearla primero
 ```
@@ -602,13 +602,13 @@ Content-Type: application/json
 **Resolución:**
 ```powershell
 # Listar roles en la Business Unit
-GET {{DataverseURL}}/api/data/v9.2/roles?$select=name&$filter=businessunitid/businessunitid eq {{BUId}}
+GET {{DataverseURL}}/api/data/v9.2/roles$select=name&$filter=businessunitid/businessunitid eq {{BUId}}
 
 # Crear/copiar el rol si es necesario
 # Settings > Security > Security Roles > Copy Role to Business Unit
 ```
 
-## ??? Solución de Problemas
+##  Solución de Problemas
 
 ### Problema: "Unauthorized" al invocar el flujo
 
@@ -667,7 +667,7 @@ GET {{DataverseURL}}/api/data/v9.2/roles?$select=name&$filter=businessunitid/bus
 Get-AdminPowerApp | Where-Object {$_.AppName -eq $AppId}
 
 # 2. Verificar que la app está en la tabla admin_apps
-GET {{DataverseURL}}/api/data/v9.2/admin_apps?$filter=admin_appidstring eq '{AppId}'
+GET {{DataverseURL}}/api/data/v9.2/admin_apps$filter=admin_appidstring eq '{AppId}'
 
 # 3. Ejecutar inventario del CoE Kit si la app no aparece
 # Flujo: "Admin | Sync Template v4"
@@ -686,7 +686,7 @@ GET {{DataverseURL}}/api/data/v9.2/admin_apps?$filter=admin_appidstring eq '{App
 # División debe coincidir exactamente con el campo divisionname
 
 # 2. Listar divisiones disponibles
-GET {{DataverseURL}}/api/data/v9.2/businessunits?$select=name,divisionname,isdisabled
+GET {{DataverseURL}}/api/data/v9.2/businessunits$select=name,divisionname,isdisabled
 
 # 3. Verificar que la BU no está deshabilitada
 # isdisabled debe ser false
@@ -765,19 +765,19 @@ Content-Type: application/json
 # 3. Dividir operaciones pesadas en múltiples pasos
 ```
 
-## ?? Mejores Prácticas
+##  Mejores Prácticas
 
 ### Seguridad
 
 #### 1. Gestión de Secretos
 
 ```powershell
-# ? MAL - Hardcodear secretos en el flujo
+#  MAL - Hardcodear secretos en el flujo
 "CredentialsSecret": "YOUR_CLIENT_SECRET_HERE"
 
-# ? BIEN - Usar Azure Key Vault
+#  BIEN - Usar Azure Key Vault
 # Crear acción HTTP para obtener secret
-GET https://{keyvault-name}.vault.azure.net/secrets/{secret-name}?api-version=7.3
+GET https://{keyvault-name}.vault.azure.net/secrets/{secret-name}api-version=7.3
 Authorization: Bearer @{variables('KeyVaultToken')}
 
 # Usar el output en lugar del valor hardcodeado
@@ -851,11 +851,11 @@ Authorization: Bearer @{variables('KeyVaultToken')}
 #### 2. Consultas Optimizadas
 
 ```javascript
-// ? MAL - Obtener todos los campos
+//  MAL - Obtener todos los campos
 GET /api/data/v9.2/teams
 
-// ? BIEN - Seleccionar solo campos necesarios
-GET /api/data/v9.2/teams?$select=teamid,name&$filter=azureactivedirectoryobjectid eq '{guid}'
+//  BIEN - Seleccionar solo campos necesarios
+GET /api/data/v9.2/teams$select=teamid,name&$filter=azureactivedirectoryobjectid eq '{guid}'
 ```
 
 #### 3. Procesamiento Paralelo
@@ -880,10 +880,10 @@ Si necesitas procesar múltiples operaciones, considera usar acciones paralelas:
 #### 1. Nombres Descriptivos
 
 ```javascript
-// ? MAL
+//  MAL
 "Action_1": { /* ... */ }
 
-// ? BIEN
+//  BIEN
 "Obtener_Business_Unit_Por_Division": { /* ... */ }
 ```
 
@@ -961,7 +961,7 @@ Convertir valores hardcodeados en variables de entorno:
 }
 ```
 
-## ?? Contribución
+##  Contribución
 
 Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 
@@ -1006,24 +1006,24 @@ Body: { "Action": "delete", "AppId": "...", "SecurityGroupName": "TEST_BU_Role" 
 # Ejecutar dos veces el mismo request DELETE
 ```
 
-## ?? Licencia
+##  Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](../../../LICENSE) para más detalles.
 
-## ?? Autores
+##  Autores
 
 **Alejandro Caravantes Molina**
 - LinkedIn: [https://www.linkedin.com/in/acaravantesmolina/](https://www.linkedin.com/in/acaravantesmolina/)
 - Blog: [https://acaravantes.wixsite.com/misitio](https://acaravantes.wixsite.com/misitio)
 - Email: acaravantes@gmail.com
 
-## ?? Agradecimientos
+##  Agradecimientos
 
 - **Microsoft Power Platform Team**: Por el increíble ecosistema de Power Automate
 - **Center of Excellence (CoE) Team**: Por el CoE Starter Kit que inspiró este componente
 - **Community**: Por feedback y contribuciones continuas
 
-## ?? Recursos Adicionales
+##  Recursos Adicionales
 
 ### Documentación Oficial
 
@@ -1047,42 +1047,20 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](../../../
 - [Power Platform CLI](https://aka.ms/PowerPlatformCLI): Automatización de despliegues
 - [Dataverse REST Builder](https://github.com/GuidoPreite/DRB): Construcción de queries OData
 
-## ??? Soporte
+##  Soporte
 
 Si encuentras algún problema o tienes preguntas:
 
-- ?? **Issues**: [Reportar un bug](../../../../issues)
-- ?? **Discussions**: [Hacer una pregunta o sugerencia](../../../../discussions)
-- ?? **Email**: acaravantes@gmail.com
-- ?? **LinkedIn**: [Contactar por LinkedIn](https://www.linkedin.com/in/acaravantesmolina/)
+-  **Issues**: [Reportar un bug](../../../../issues)
+-  **Discussions**: [Hacer una pregunta o sugerencia](../../../../discussions)
+-  **Email**: acaravantes@gmail.com
+-  **LinkedIn**: [Contactar por LinkedIn](https://www.linkedin.com/in/acaravantesmolina/)
 
-## ??? Roadmap
+**Desarrollado con  usando Power Platform**
 
-### Versión Actual: 1.0.0.1
-
-### Próximas Mejoras Planeadas
-
-- [ ] **v1.1.0**: Soporte para múltiples roles de seguridad por equipo
-- [ ] **v1.2.0**: Integración con Azure Key Vault para gestión de secretos
-- [ ] **v1.3.0**: Soporte para Model Driven Apps (además de Canvas Apps)
-- [ ] **v1.4.0**: Notificaciones por email/Teams en operaciones críticas
-- [ ] **v1.5.0**: Dashboard de telemetría en Power BI
-- [ ] **v2.0.0**: Procesamiento batch de múltiples grupos
-
-### Contribuciones Deseadas
-
-- Mejoras en manejo de errores
-- Tests automatizados
-- Documentación en inglés
-- Ejemplos de integración con otros sistemas
-
----
-
-**Desarrollado con ?? usando Power Platform**
-
-![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=for-the-badge&logo=powerautomate&logoColor=white)
-![Dataverse](https://img.shields.io/badge/Dataverse-742774?style=for-the-badge&logo=microsoft&logoColor=white)
-![Azure AD](https://img.shields.io/badge/Azure%20AD-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FFstyle=for-the-badge&logo=powerautomate&logoColor=white)
+![Dataverse](https://img.shields.io/badge/Dataverse-742774style=for-the-badge&logo=microsoft&logoColor=white)
+![Azure AD](https://img.shields.io/badge/Azure%20AD-0078D4style=for-the-badge&logo=microsoftazure&logoColor=white)
 
 ---
 
