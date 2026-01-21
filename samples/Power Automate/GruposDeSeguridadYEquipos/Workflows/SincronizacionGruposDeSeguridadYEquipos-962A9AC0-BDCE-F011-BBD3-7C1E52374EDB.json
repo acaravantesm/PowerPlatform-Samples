@@ -1,0 +1,1171 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECoreDataverseForApps"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "b6f751cf-1b06-4ef0-a5cc-919e74f16f9c"
+          },
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Action": {
+                  "type": "string",
+                  "enum": [
+                    "create",
+                    "delete"
+                  ]
+                },
+                "AppId": {
+                  "type": "string"
+                },
+                "SecurityGroupId": {
+                  "type": "string"
+                },
+                "SecurityGroupName": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Action",
+                "AppId",
+                "SecurityGroupName"
+              ],
+              "additionalProperties": false
+            },
+            "method": "POST",
+            "triggerAuthenticationType": "User",
+            "triggerAllowedUsers": "alloweduser@yourdomain.com"
+          }
+        }
+      },
+      "actions": {
+        "Obtencion_Entorno_de_la_App": {
+          "actions": {
+            "Obtener_Entorno_de_la_App_Recibida": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "a482d5bc-e560-4d7e-a5bd-2b3fddee70f1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "admin_apps",
+                  "$select": "admin_appid,admin_AppEnvironment",
+                  "$filter": "admin_appidstring eq '@{triggerBody()['AppId']}'",
+                  "$top": 1,
+                  "$expand": "admin_AppEnvironment($select=admin_environmentcdsinstanceurl)"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d1b0bdd6-4431-4b19-91ad-43d499eff074"
+          },
+          "type": "Scope"
+        },
+        "Declarar_TargetEnvironmentUrl": {
+          "runAfter": {
+            "Obtencion_Entorno_de_la_App": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4b96d659-8104-42e9-90ab-ac8b66263b7c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "targetEnvironmentUrl",
+                "type": "string",
+                "value": "@{first(outputs('Obtener_Entorno_de_la_App_Recibida')?['body/value'])['admin_AppEnvironment/admin_environmentcdsinstanceurl']}"
+              }
+            ]
+          }
+        },
+        "Declarar_BusinessUnit": {
+          "runAfter": {
+            "Declarar_TargetEnvironmentUrl": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4c139708-c252-4048-a7b2-8684731cf269"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "businessUnitId",
+                "type": "string",
+                "value": "@{split(triggerBody()['SecurityGroupName'],'_')[1]}"
+              }
+            ]
+          }
+        },
+        "Declarar_SecurityRole": {
+          "runAfter": {
+            "Declarar_BusinessUnit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "08a41352-ca51-4646-80ae-c3b50fe971e4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "securityRoleName",
+                "type": "string",
+                "value": "@{split(triggerBody()['SecurityGroupName'],'_')[2]}"
+              }
+            ]
+          }
+        },
+        "Declarar_AppId": {
+          "runAfter": {
+            "Declarar_SecurityRole": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9f92d316-aa39-439d-a710-d8a1da37600e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "CredentialsAppId",
+                "type": "string",
+                "value": "YOUR_APP_ID"
+              }
+            ]
+          }
+        },
+        "Declarar_Secret": {
+          "runAfter": {
+            "Declarar_AppId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e50d04a3-e83b-4fc0-84a9-081c431a94a8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "CredentialsSecret",
+                "type": "string",
+                "value": "@{encodeUriComponent('YOUR_SECRET_VALUE')}"
+              }
+            ]
+          }
+        },
+        "Declarar_TenantId": {
+          "runAfter": {
+            "Declarar_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9905896e-81bd-463e-937b-6e4ba26aaa7b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TenantId",
+                "type": "string",
+                "value": "YOUR_TENANT_ID"
+              }
+            ]
+          }
+        },
+        "Declarar_AccessToken": {
+          "runAfter": {
+            "Declarar_TenantId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e6fe8a17-1b9a-4910-9891-b99eb56ed445"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AccessToken",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Declarar_TargetEnvironmentApi": {
+          "runAfter": {
+            "Declarar_AccessToken": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49e8b4cf-4bc4-491f-a9d4-dbfc962db85c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "targetEnvironmentApi",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Declarar_TargetBusinessUnitId": {
+          "runAfter": {
+            "Declarar_TargetEnvironmentApi": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c60994c3-362a-49fc-b5ec-2671bbb56e57"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TargetBusinessUnitId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Declarar_TargetSecurityRoleId": {
+          "runAfter": {
+            "Declarar_TargetBusinessUnitId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1c9b42bd-c8d1-4c6a-90f0-a3141965013f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TargetSecurityRoleId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Declarar_TeamAdminUser": {
+          "runAfter": {
+            "Declarar_TargetSecurityRoleId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a0a6756c-145e-4c3f-ab4d-1cc5f418fe35"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TeamAdminUser",
+                "type": "string",
+                "value": "teamadmin@yourdomain.com"
+              }
+            ]
+          }
+        },
+        "Declarar_NewTeamId": {
+          "runAfter": {
+            "Declarar_TeamAdminUser": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "353a13cf-9c59-4abc-aa19-06376c3f27be"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "NewTeamId",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Si_se_obtiene_el_Environment_de_la_App_indicada": {
+          "actions": {
+            "Establecer_Url_API_Entorno": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "fbe33da9-ad14-4b8e-b4e2-62a29c3bf2e7"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "targetEnvironmentApi",
+                "value": "@{concat(variables('targetEnvironmentUrl'), 'api/data/v9.2')}"
+              }
+            },
+            "Conmutador": {
+              "runAfter": {
+                "Obtencion_de_Token_de_Acceso": [
+                  "Succeeded"
+                ]
+              },
+              "cases": {
+                "Crear_Equipo-Rol": {
+                  "case": "create",
+                  "actions": {
+                    "Comprobar_que_el_Equipo_no_existe": {
+                      "actions": {
+                        "Consultar_Equipo": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "3434d9af-d534-40d6-bc4d-7b8cdc2ca275"
+                          },
+                          "type": "Http",
+                          "inputs": {
+                            "method": "GET",
+                            "uri": "@{concat(variables('targetEnvironmentApi'),'/teams?$select=teamid,name&$filter=azureactivedirectoryobjectid eq ''',triggerBody()?['SecurityGroupId'],'''')}",
+                            "headers": {
+                              "Authorization": "Bearer @{variables('AccessToken')}"
+                            }
+                          },
+                          "runtimeConfiguration": {
+                            "contentTransfer": {
+                              "transferMode": "Chunked"
+                            }
+                          }
+                        },
+                        "Si_el_Equipo_ya_existe": {
+                          "actions": {
+                            "Establecer_Nombre_Equipo": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "e8a7e8bb-96f7-4ef2-933f-b3d6771b9f24"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "NewTeamId",
+                                "value": "@{first(body('Consultar_Equipo')['value'])?['name']}"
+                              }
+                            },
+                            "EquipoYaExiste": {
+                              "runAfter": {
+                                "Respuesta": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "171e1ad5-fc7f-4f2f-9f71-4616be33d428"
+                              },
+                              "type": "Terminate",
+                              "inputs": {
+                                "runStatus": "Failed",
+                                "runError": {
+                                  "code": "1001_TeamAlreadyExists",
+                                  "message": "CREATE OPERATION FAILED: Team associated to @{triggerBody()?['SecurityGroupName']} Security Group already exists with name @{variables('NewTeamId')}"
+                                }
+                              }
+                            },
+                            "Respuesta": {
+                              "runAfter": {
+                                "Establecer_Nombre_Equipo": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "ee2b303a-3940-408a-aaa0-8a2a74457695"
+                              },
+                              "type": "Response",
+                              "kind": "Http",
+                              "inputs": {
+                                "statusCode": 200,
+                                "headers": {
+                                  "ErrorCode": "1001_TeamAlreadyExists"
+                                },
+                                "body": "CREATE OPERATION FAILED: Team associated to @{triggerBody()?['SecurityGroupName']} Security Group already exists with name @{variables('NewTeamId')}"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Consultar_Equipo": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Consultas_Previas_a_la_Creacion_del_Equipo": {
+                                "actions": {
+                                  "Obtener_Business_Unit": {
+                                    "runAfter": {},
+                                    "metadata": {
+                                      "operationMetadataId": "4addc6cb-dd21-4943-9b71-34ac3623509e"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "GET",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'),'/businessunits?$select=businessunitid,name&$filter=isdisabled eq false and divisionname eq ''',variables('businessUnitId'),'''')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}"
+                                      }
+                                    }
+                                  },
+                                  "Establecer_TargetBusinessUnitId": {
+                                    "runAfter": {
+                                      "Si_la_BU_no_existe": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "19005dd8-927b-409a-a156-2375beae51a4"
+                                    },
+                                    "type": "SetVariable",
+                                    "inputs": {
+                                      "name": "TargetBusinessUnitId",
+                                      "value": "@{first(body('Obtener_Business_Unit')['value'])['businessunitid']}"
+                                    }
+                                  },
+                                  "Obtener_RolSeguridad": {
+                                    "runAfter": {
+                                      "Establecer_TargetBusinessUnitId": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "c952b8ee-c495-4c9c-9f64-d55a1077c69e"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "GET",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'), '/roles?$select=roleid,name&$filter=businessunitid/businessunitid eq ',variables('TargetBusinessUnitId'),' and name eq ''', variables('securityRoleName'), '''')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}"
+                                      }
+                                    }
+                                  },
+                                  "Establecer_SecurityRoleId": {
+                                    "runAfter": {
+                                      "Si_el_Rol_no_existe": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "1a156766-02a7-4bf6-a0e5-8dbbcc83afe7"
+                                    },
+                                    "type": "SetVariable",
+                                    "inputs": {
+                                      "name": "TargetSecurityRoleId",
+                                      "value": "@{first(body('Obtener_RolSeguridad')['value'])['roleid']}"
+                                    }
+                                  },
+                                  "Obtener_Administrador_del_Equipo": {
+                                    "runAfter": {
+                                      "Establecer_SecurityRoleId": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "107e6635-4d12-43ac-b878-815bfd21c01a"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "GET",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'), '/systemusers?$select=systemuserid&$filter=domainname eq ''', variables('TeamAdminUser'), '''')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}"
+                                      }
+                                    }
+                                  },
+                                  "Establecer_TeamAdminUser": {
+                                    "runAfter": {
+                                      "Obtener_Administrador_del_Equipo": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "dee1f30b-fd80-45a7-9605-8cc30621d475"
+                                    },
+                                    "type": "SetVariable",
+                                    "inputs": {
+                                      "name": "TeamAdminUser",
+                                      "value": "@{first(body('Obtener_Administrador_del_Equipo')['value'])['systemuserid']}"
+                                    }
+                                  },
+                                  "Si_la_BU_no_existe": {
+                                    "actions": {
+                                      "Respuesta_5": {
+                                        "runAfter": {},
+                                        "metadata": {
+                                          "operationMetadataId": "b4202c10-5af7-4782-b243-cec79b9ff2a4"
+                                        },
+                                        "type": "Response",
+                                        "kind": "Http",
+                                        "inputs": {
+                                          "statusCode": 200,
+                                          "headers": {
+                                            "ErrorCode": "1003_BUNotExists"
+                                          },
+                                          "body": "CREATE OPERATION FAILED: Business Unit with Division: @{variables('businessUnitId')} does not exists"
+                                        }
+                                      },
+                                      "BU_no_existe": {
+                                        "runAfter": {
+                                          "Respuesta_5": [
+                                            "Succeeded"
+                                          ]
+                                        },
+                                        "metadata": {
+                                          "operationMetadataId": "f5e130c1-e75f-4898-a87d-f7dfed4ffafa"
+                                        },
+                                        "type": "Terminate",
+                                        "inputs": {
+                                          "runStatus": "Failed",
+                                          "runError": {
+                                            "code": "1003_BUNotExists",
+                                            "message": "CREATE OPERATION FAILED: Business Unit with Division: @{variables('businessUnitId')} does not exists"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "runAfter": {
+                                      "Obtener_Business_Unit": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "expression": {
+                                      "equals": [
+                                        "@length(body('Obtener_Business_Unit')?['value'])",
+                                        0
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "4c619998-bb4e-451e-af31-5765d2040dc7"
+                                    },
+                                    "type": "If"
+                                  },
+                                  "Si_el_Rol_no_existe": {
+                                    "actions": {
+                                      "Respuesta_6": {
+                                        "runAfter": {},
+                                        "metadata": {
+                                          "operationMetadataId": "ff1a77ed-0f62-4cf9-8241-b520b02135d3"
+                                        },
+                                        "type": "Response",
+                                        "kind": "Http",
+                                        "inputs": {
+                                          "statusCode": 200,
+                                          "headers": {
+                                            "ErrorCode": "1004_RoleNotExists"
+                                          },
+                                          "body": "CREATE OPERATION FAILED: Security Role: @{variables('securityRoleName')} does not exists"
+                                        }
+                                      },
+                                      "Rol_no_existe": {
+                                        "runAfter": {
+                                          "Respuesta_6": [
+                                            "Succeeded"
+                                          ]
+                                        },
+                                        "metadata": {
+                                          "operationMetadataId": "e602e185-b5a1-4c71-b63e-3137ad37dcd8"
+                                        },
+                                        "type": "Terminate",
+                                        "inputs": {
+                                          "runStatus": "Failed",
+                                          "runError": {
+                                            "code": "1004_RoleNotExists",
+                                            "message": "CREATE OPERATION FAILED: Security Role: @{variables('securityRoleName')} does not exists"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "runAfter": {
+                                      "Obtener_RolSeguridad": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "expression": {
+                                      "equals": [
+                                        "@length(body('Obtener_RolSeguridad')?['value'])",
+                                        0
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "a0578d86-e2c4-4d13-bf9b-3b57e6a2e6ca"
+                                    },
+                                    "type": "If"
+                                  }
+                                },
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "1bb0cdee-b8d0-47fb-a82d-9738f3f48df4"
+                                },
+                                "type": "Scope"
+                              },
+                              "Creacion_de_Equipo_y_Asociacion_de_Rol_de_Seguridad": {
+                                "actions": {
+                                  "Crear_Equipo": {
+                                    "runAfter": {},
+                                    "metadata": {
+                                      "operationMetadataId": "655806a8-1abb-4f77-8ae7-c9eb57b7c16a"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "POST",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'),'/teams')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}"
+                                      },
+                                      "body": {
+                                        "name": "@{triggerBody()['SecurityGroupName']}",
+                                        "description": "",
+                                        "teamtype": 2,
+                                        "membershiptype": 2,
+                                        "azureactivedirectoryobjectid": "@triggerBody()?['SecurityGroupId']",
+                                        "businessunitid@odata.bind": "/businessunits(@{variables('TargetBusinessUnitId')})",
+                                        "administratorid@odata.bind": "/systemusers(@{variables('TeamAdminUser')})"
+                                      }
+                                    }
+                                  },
+                                  "Establecer_NewTeamId": {
+                                    "runAfter": {
+                                      "Crear_Equipo": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "2582c3ca-6158-45ff-8477-3896787fa262"
+                                    },
+                                    "type": "SetVariable",
+                                    "inputs": {
+                                      "name": "NewTeamId",
+                                      "value": "@{replace(last(split(outputs('Crear_Equipo')?['headers']['odata-entityid'], '(')), ')', '')}"
+                                    }
+                                  },
+                                  "Compose_JSON_Team-Role": {
+                                    "runAfter": {
+                                      "Establecer_NewTeamId": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "f6e8e590-ebcf-498d-a78f-4f971642b377"
+                                    },
+                                    "type": "Compose",
+                                    "inputs": "@concat('{\"@odata.id\":\"',variables('targetEnvironmentApi'),'/roles(',variables('TargetSecurityRoleId'),')\"}')"
+                                  },
+                                  "Asociar_Rol_a_Equipo": {
+                                    "runAfter": {
+                                      "Compose_JSON_Team-Role": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "18473f6b-d2ba-409c-958d-f86240c71755"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "POST",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'),'/teams(',variables('NewTeamId'),')/teamroles_association/$ref')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}",
+                                        "Content-Type": "application/json"
+                                      },
+                                      "body": "@outputs('Compose_JSON_Team-Role')"
+                                    }
+                                  }
+                                },
+                                "runAfter": {
+                                  "Consultas_Previas_a_la_Creacion_del_Equipo": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "571ec793-5854-4a00-89ed-ad38e93c13ba"
+                                },
+                                "type": "Scope"
+                              },
+                              "Equipo_Creado_y_Rol_Asociado": {
+                                "runAfter": {
+                                  "Respuesta_2": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "6492f50a-3d9d-4d79-a34a-2089b77d13fd"
+                                },
+                                "type": "Terminate",
+                                "inputs": {
+                                  "runStatus": "Succeeded"
+                                }
+                              },
+                              "Respuesta_2": {
+                                "runAfter": {
+                                  "Si_AppId_es_CanvasApp,_dar_acceso_al_grupo": [
+                                    "Succeeded",
+                                    "Failed"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "6499049a-965d-4f19-8df3-b3b9e794ff72"
+                                },
+                                "type": "Response",
+                                "kind": "Http",
+                                "inputs": {
+                                  "statusCode": 200
+                                }
+                              },
+                              "Si_AppId_es_CanvasApp,_dar_acceso_al_grupo": {
+                                "actions": {
+                                  "Obtencion_Datos_CanvasApp": {
+                                    "runAfter": {},
+                                    "metadata": {
+                                      "operationMetadataId": "bd035766-3199-4a6a-878d-72438c7643c3"
+                                    },
+                                    "type": "Http",
+                                    "inputs": {
+                                      "method": "GET",
+                                      "uri": "@{concat(variables('targetEnvironmentApi'),'/canvasapps(',triggerBody()['AppId'],')?$select=name')}",
+                                      "headers": {
+                                        "Authorization": "Bearer @{variables('AccessToken')}"
+                                      }
+                                    }
+                                  },
+                                  "Si_la_Canvas_Existe": {
+                                    "actions": {
+                                      "Compartir_Canvas_con_el_GS": {
+                                        "runAfter": {},
+                                        "metadata": {
+                                          "operationMetadataId": "b526d3ea-85de-48ed-9f31-cb0a351cf585"
+                                        },
+                                        "type": "Http",
+                                        "inputs": {
+                                          "method": "POST",
+                                          "uri": "@{concat('https://api.powerapps.com/providers/Microsoft.PowerApps/apps/',triggerBody()['AppId'],'/permissions/',variables('securityRoleName'),'?api-version=2020-06-01')}",
+                                          "headers": {
+                                            "Authorization": "Bearer @{variables('AccessToken')}"
+                                          },
+                                          "body": {
+                                            "put": [
+                                              {
+                                                "properties": {
+                                                  "principal": {
+                                                    "id": "@{triggerBody()?['SecurityGroupId']}",
+                                                    "type": "Group",
+                                                    "tenantId": "@{variables('TenantId')}"
+                                                  },
+                                                  "roleName": "CanView",
+                                                  "notifyShareTargetOption": "DoNotNotify"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "runAfter": {
+                                      "Obtencion_Datos_CanvasApp": [
+                                        "Succeeded",
+                                        "Failed"
+                                      ]
+                                    },
+                                    "expression": {
+                                      "equals": [
+                                        "@outputs('Obtencion_Datos_CanvasApp')['statusCode']",
+                                        200
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "3cdf3a87-ecc3-4d47-8062-ba84af10af74"
+                                    },
+                                    "type": "If"
+                                  }
+                                },
+                                "runAfter": {
+                                  "Creacion_de_Equipo_y_Asociacion_de_Rol_de_Seguridad": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "584a3e38-6c77-4f34-a4dd-904b3292e768"
+                                },
+                                "type": "Scope"
+                              }
+                            }
+                          },
+                          "expression": {
+                            "and": [
+                              {
+                                "greater": [
+                                  "@length(body('Consultar_Equipo')?['value'])",
+                                  0
+                                ]
+                              }
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "de0b9aba-3c94-467d-b1d0-6466b7493ac4"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "549d58a7-ee7f-4f1b-8e6a-55c8dfe9d377"
+                      },
+                      "type": "Scope"
+                    }
+                  }
+                },
+                "Borrar_Equipo-1": {
+                  "case": "delete",
+                  "actions": {
+                    "Borrar_Equipo": {
+                      "actions": {
+                        "Obtener_Team_a_Eliminar": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "32eed37d-da5a-416f-a96b-5acdf4e6536e"
+                          },
+                          "type": "Http",
+                          "inputs": {
+                            "method": "GET",
+                            "uri": "@{concat(variables('targetEnvironmentApi'),'/teams?$select=teamid,name&$filter=name eq ''',triggerBody()['SecurityGroupName'],'''')}",
+                            "headers": {
+                              "Authorization": "Bearer @{variables('AccessToken')}"
+                            }
+                          }
+                        },
+                        "Condición": {
+                          "actions": {
+                            "Establecer_Id_Equipo": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "1007c00c-6869-4b83-83bc-8dbc91a76f3d"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "NewTeamId",
+                                "value": "@{first(body('Obtener_Team_a_Eliminar')['value'])?['teamid']}"
+                              }
+                            },
+                            "HTTP": {
+                              "runAfter": {
+                                "Establecer_Id_Equipo": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "ad1edfd3-d2de-481d-86ae-65f18245e487"
+                              },
+                              "type": "Http",
+                              "inputs": {
+                                "method": "DELETE",
+                                "uri": "@{concat(variables('targetEnvironmentApi'),'/teams(',variables('NewTeamId'),')')}",
+                                "headers": {
+                                  "Authorization": "Bearer @{variables('AccessToken')}"
+                                }
+                              }
+                            },
+                            "Equipo_Borrado": {
+                              "runAfter": {
+                                "Respuesta_3": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "02190302-57f3-45c7-b8f7-a9901b6a74d8"
+                              },
+                              "type": "Terminate",
+                              "inputs": {
+                                "runStatus": "Succeeded"
+                              }
+                            },
+                            "Respuesta_3": {
+                              "runAfter": {
+                                "Si_AppId_es_CanvasApp,_quitar_acceso_al_grupo": [
+                                  "Succeeded",
+                                  "Failed"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "8bb1dcba-5ba6-4293-9ac5-8bfb2a1d63a5"
+                              },
+                              "type": "Response",
+                              "kind": "Http",
+                              "inputs": {
+                                "statusCode": 200
+                              }
+                            },
+                            "Si_AppId_es_CanvasApp,_quitar_acceso_al_grupo": {
+                              "actions": {
+                                "Obtencion_Datos_CanvasApp_2": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "bd035766-3199-4a6a-878d-72438c7643c3"
+                                  },
+                                  "type": "Http",
+                                  "inputs": {
+                                    "method": "GET",
+                                    "uri": "@{concat(variables('targetEnvironmentApi'), '/canvasapps(', triggerBody()['AppId'], ')?$select=name')}",
+                                    "headers": {
+                                      "Authorization": "Bearer @{variables('AccessToken')}"
+                                    }
+                                  }
+                                },
+                                "Si_la_Canvas_Existe_2": {
+                                  "actions": {
+                                    "Eliminar_acceso_a_la_Canvas_para_ese_Grupo": {
+                                      "runAfter": {},
+                                      "metadata": {
+                                        "operationMetadataId": "b526d3ea-85de-48ed-9f31-cb0a351cf585"
+                                      },
+                                      "type": "Http",
+                                      "inputs": {
+                                        "method": "DELETE",
+                                        "uri": "@{concat('https://api.powerapps.com/providers/Microsoft.PowerApps/apps/', triggerBody()['AppId'], '/permissions/', variables('securityRoleName'), '/',triggerBody()?['SecurityGroupId'],'?api-version=2020-06-01')}",
+                                        "headers": {
+                                          "Authorization": "Bearer @{variables('AccessToken')}"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "runAfter": {
+                                    "Obtencion_Datos_CanvasApp_2": [
+                                      "Succeeded",
+                                      "Failed"
+                                    ]
+                                  },
+                                  "expression": {
+                                    "equals": [
+                                      "@outputs('Obtencion_Datos_CanvasApp_2')['statusCode']",
+                                      200
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "3cdf3a87-ecc3-4d47-8062-ba84af10af74"
+                                  },
+                                  "type": "If"
+                                }
+                              },
+                              "runAfter": {
+                                "HTTP": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "584a3e38-6c77-4f34-a4dd-904b3292e768"
+                              },
+                              "type": "Scope"
+                            }
+                          },
+                          "runAfter": {
+                            "Obtener_Team_a_Eliminar": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Respuesta_4": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "802f2f25-a868-464d-b150-651d379670dc"
+                                },
+                                "type": "Response",
+                                "kind": "Http",
+                                "inputs": {
+                                  "statusCode": 200,
+                                  "headers": {
+                                    "ErrorCode": "1002_TeamDoesntExists"
+                                  },
+                                  "body": "DELETE OPERATION FAILED: Team with name @{triggerBody()['SecurityGroupName']} does not exists"
+                                }
+                              },
+                              "Finalizar_2": {
+                                "runAfter": {
+                                  "Respuesta_4": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "664813cc-ed85-4110-b8b8-1abf4553ed53"
+                                },
+                                "type": "Terminate",
+                                "inputs": {
+                                  "runStatus": "Failed",
+                                  "runError": {
+                                    "code": "1002_TeamDoesntExists",
+                                    "message": "DELETE OPERATION FAILED: Team with name @{triggerBody()['SecurityGroupName']} does not exists"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "greater": [
+                              "@length(body('Obtener_Team_a_Eliminar')?['value'])",
+                              0
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "328b4783-5e36-48c0-b7d5-19e2b3c0605a"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "7bd46db1-915b-4a0f-9914-a8f66fb93231"
+                      },
+                      "type": "Scope"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Finalizar": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "e90f1e9b-c6cd-40cf-899f-49eafc133612"
+                    },
+                    "type": "Terminate",
+                    "inputs": {
+                      "runStatus": "Failed",
+                      "runError": {
+                        "message": "Los valores admitidos para Action son 'create' o 'delete'"
+                      }
+                    }
+                  }
+                }
+              },
+              "expression": "@triggerBody()['Action']",
+              "metadata": {
+                "operationMetadataId": "1a42ad9d-faff-4ea3-a241-2a6a3207c91c"
+              },
+              "type": "Switch"
+            },
+            "Obtencion_de_Token_de_Acceso": {
+              "actions": {
+                "Obtener_Token_de_Acceso": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "b8e9f494-fce7-4e53-9211-df431204415d"
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "method": "POST",
+                    "uri": "https://login.microsoftonline.com/@{variables('TenantId')}/oauth2/v2.0/token",
+                    "headers": {
+                      "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    "body": "grant_type=client_credentials&\nclient_id=@{variables('CredentialsAppId')}&\nclient_secret=@{variables('CredentialsSecret')}&\nscope=@{variables('targetEnvironmentUrl')}.default"
+                  }
+                },
+                "Establecer_AccessToken": {
+                  "runAfter": {
+                    "Obtener_Token_de_Acceso": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5a8a657f-0d22-4699-957e-8bb3b2c6754e"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "AccessToken",
+                    "value": "@{body('Obtener_Token_de_Acceso')['access_token']}"
+                  }
+                }
+              },
+              "runAfter": {
+                "Establecer_Url_API_Entorno": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a87b1b25-e5a8-459a-9335-a596ad919480"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Declarar_NewTeamId": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Aplicacion_no_encontrada": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "901f6690-3edb-4352-b0b1-9d7e1cc84c8f"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed",
+                  "runError": {
+                    "message": "No se ha encontrado la aplicación: @{triggerBody()['AppId']}"
+                  }
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@length(outputs('Obtener_Entorno_de_la_App_Recibida')?['body/value'])",
+              1
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2c7d0325-0149-41b9-a45d-172f855bad81"
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
