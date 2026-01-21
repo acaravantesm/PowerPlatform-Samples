@@ -5,3 +5,7 @@
 /.vs
 /samples/Power Component Framework/UserAndTeamSelector/node_modules
 /samples/Power Component Framework/UserAndTeamSelector/out/controls/UserAndTeamSelector
+/samples/.NËT/Plugins/Set Business Unit/.vs/SetBusinessUnit
+/samples/.NËT/Plugins/Set Business Unit/bin
+/samples/.NËT/Plugins/Set Business Unit/obj
+/samples/.NËT/Plugins/Set Business Unit/packages

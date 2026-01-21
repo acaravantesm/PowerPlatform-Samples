@@ -1,9 +1,13 @@
 # Smart User Team Picker - PCF Control
 
+> **Read this in other languages**: [🇺🇸 English](README.en.md) | [🇪🇸 Español](README.md)
+
 [![Power Apps](https://img.shields.io/badge/Power%20Apps-PCF-742774?style=flat-square)](https://powerapps.microsoft.com/)
 [![React](https://img.shields.io/badge/React-16.14.0-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Language](https://img.shields.io/badge/lang-es-red?style=flat-square)](README.md)
+[![Language](https://img.shields.io/badge/lang-en-blue?style=flat-square)](README.en.md)
 
 Un componente PCF (PowerApps Component Framework) inteligente para seleccionar usuarios y equipos en Dynamics 365 / Power Apps con memoria de selecciones recientes.
 
