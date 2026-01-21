@@ -1,6 +1,6 @@
 # Obtener componentes Power Platform de todo el tenant con PowerShell
 
-![](./assets/pws/9456da_f7fe7d46f8a74cdcbfeb1b273efaa271~mv2.png)
+![](./assets/pws/9456da_f7fe7d46f8a74cdcbfeb1b273efaa271~mv2.avif)
 
 Algo muy rápido en esta ocasión y no tan extenso como los otros post.
 
