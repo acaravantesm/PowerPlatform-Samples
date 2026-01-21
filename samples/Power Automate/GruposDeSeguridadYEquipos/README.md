@@ -1,8 +1,8 @@
 # Sincronización de Grupos de Seguridad y Equipos - Power Automate Flow
 
-[![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=flat-square&logo=powerautomate&logoColor=white)](https://powerautomate.microsoft.com/)
-[![Dataverse](https://img.shields.io/badge/Dataverse-0078D4?style=flat-square&logo=microsoftdataverse&logoColor=white)](https://docs.microsoft.com/power-apps/developer/data-platform/)
-[![Azure AD](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/services/active-directory/)
+[![Power Automate](https://img.shields.io/badge/Power%20Automate-Flow-0066FF?style=flat-square&logo=powerautomate&logoColor=white)](https://powerautomate.microsoft.com/)
+[![Dataverse](https://img.shields.io/badge/Dataverse-DB-0078D4?style=flat-square&logo=microsoftdataverse&logoColor=white)](https://www.microsoft.com/en-us/microsoft-dataverse)
+[![Azure](https://img.shields.io/badge/Azure-Cloud-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
 Un flujo de Power Automate diseñado para sincronizar automáticamente grupos de seguridad de Azure Active Directory con equipos (teams) en Microsoft Dataverse, permitiendo la gestión centralizada de permisos y roles de seguridad.
