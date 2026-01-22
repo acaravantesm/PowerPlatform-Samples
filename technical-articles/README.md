@@ -1,12 +1,5 @@
 # Artículos Técnicos - Microsoft Power Platform
 
-> **Read this in other languages**: [en English](README.en.md) | [es Español](README.md)
-
-[![Power Platform](https://img.shields.io/badge/Power%20Platform-742774?style=flat-square&logo=microsoft&logoColor=white)](https://powerplatform.microsoft.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
-[![Language](https://img.shields.io/badge/lang-es-red?style=flat-square)](README.md)
-[![Language](https://img.shields.io/badge/lang-en-blue?style=flat-square)](README.en.md)
-
 Este repositorio contiene una colección completa de artículos técnicos sobre Microsoft Power Platform, Dataverse, Power Apps, Power Automate y tecnologías relacionadas. Los artículos están escritos por Alejandro Caravantes Molina y cubren desde conceptos fundamentales hasta implementaciones avanzadas.
 
 ## Tabla de Contenidos
